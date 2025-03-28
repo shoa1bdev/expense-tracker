@@ -21,7 +21,7 @@ const pageVariants = {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/expense-tracker">
       <AppContent />
     </Router>
   );
@@ -94,8 +94,7 @@ function AppContent() {
               </motion.div>
             }
           />
-          <Route path="/settings" element={<SettingsPage />}/>
-          
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </AnimatePresence>
 

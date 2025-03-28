@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Create context
 const AppContext = createContext();
@@ -7,18 +7,31 @@ const AppContext = createContext();
 export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
-  const [accounts, setAccounts] = useState([
-    { id: 1, name: "Wallet", balance: 100 },
-    { id: 2, name: "Bank", balance: 5000 }
-  ]);
+  // Load data from localStorage or use default values
+  const [accounts, setAccounts] = useState(() => {
+    const savedAccounts = localStorage.getItem("accounts");
+    return savedAccounts ? JSON.parse(savedAccounts) : [
+      { id: 1, name: "Wallet", balance: 0 },
+      { id: 2, name: "Bank", balance: 0 }
+    ];
+  });
 
-  const [transactions, setTransactions] = useState([
-    { id: 1, name: "Bought food", category: "Food", account: "Wallet", amount: -50, date: "2025-03-25T10:40" },
-    { id: 2, name: "Salary", category: "Salary", account: "Bank", amount: 5000, date: "2025-03-24T09:00" }
-  ]);
+  const [transactions, setTransactions] = useState(() => {
+    const savedTransactions = localStorage.getItem("transactions");
+    return savedTransactions ? JSON.parse(savedTransactions) : [];
+  });
 
   const [editingTransaction, setEditingTransaction] = useState(null);
   const [editedTransaction, setEditedTransaction] = useState(null);
+
+  // Save data to localStorage whenever accounts or transactions change
+  useEffect(() => {
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+  }, [accounts]);
+
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
 
   // Function to open edit popup
   const openEditPopup = (transaction) => {
@@ -34,7 +47,7 @@ export const AppProvider = ({ children }) => {
     setEditingTransaction(null);
   };
 
-  // Function to delete transaction
+  // Function to delete transaction and adjust account balance
   const deleteTransaction = () => {
     if (!editingTransaction) return;
 
@@ -51,6 +64,19 @@ export const AppProvider = ({ children }) => {
     setEditingTransaction(null);
   };
 
+  // Function to add a new transaction and update account balance
+  const addTransaction = (newTransaction) => {
+    setTransactions((prev) => [...prev, newTransaction]);
+
+    setAccounts((prevAccounts) =>
+      prevAccounts.map((account) =>
+        account.name === newTransaction.account
+          ? { ...account, balance: account.balance + newTransaction.amount }
+          : account
+      )
+    );
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -64,7 +90,8 @@ export const AppProvider = ({ children }) => {
         setEditedTransaction,
         openEditPopup,
         saveTransactionChanges,
-        deleteTransaction
+        deleteTransaction,
+        addTransaction, // ✅ Now transactions can be added!
       }}
     >
       {children}
