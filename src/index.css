@@ -1,0 +1,33 @@
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for Firefox */
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+body {
+  background-color: #2e2e2e;
+}
+  :root {
+    --primary: #BB86FC;
+    --primary-variant: #3700B3;
+    --secondary: #03DAC6;
+    --background: #2e2e2e;
+    --surface: #121212;
+    --error: #CF6679;
+    --on-primary: #000000;
+    --on-secondary: #000000;
+    --on-background: #c7c7c7;
+    --on-error: #b4b4b4;
+  }
+  
+  /* Apply dark mode styles */
+  .dark {
+    background-color: var(--background);
+    color: var(--on-background);
+  }
+  
