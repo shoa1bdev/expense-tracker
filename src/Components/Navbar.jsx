@@ -13,7 +13,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 w-full h-[9.5vh] bg-gray-200 flex justify-center items-center shadow-md" style={{ backgroundColor: "var(--background)" }}>
+    <nav className="fixed bottom-0 pb-5 w-full h-[9.5vh] bg-gray-200 flex justify-center items-center shadow-md" style={{ backgroundColor: "var(--background)" }}>
       <ul className="flex justify-between items-center w-full h-full text-2xl relative px-6">
         {navItems.map(({ path, icon, label }, index) => (
           <li key={index} className="flex-1 flex justify-center">

@@ -154,6 +154,7 @@ const AddTransaction = ({
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        style={{ backgroundColor: "var(--primary)" }}
         key="add-transaction"
         initial={{ y: "100%" }}
         animate={{ y: "0%" }}
@@ -191,7 +192,7 @@ const AddTransaction = ({
             {["income", "expense", "transfer"].map((type) => (
               <button
                 key={type}
-                className={`relative z-10 flex-1 py-2 rounded-full transition-all duration-300 ${
+                className={`relative z-10 flex-1 py-2 rounded-3xl transition-all duration-300 ${
                   transactionType === type ? "text-white" : "text-black"
                 }`}
                 onClick={() => setTransactionType(type)}
@@ -347,10 +348,10 @@ const AddTransaction = ({
             onChange={(e) => setDate(e.target.value)}
           />
           <motion.button
-            className="w-full py-3 rounded-full text-lg hover:bg-gray-800"
+            className="w-full py-3 rounded-3xl text-lg hover:bg-gray-800"
             style={{
-              backgroundColor: "var(--primary)",
-              color: "var(--on-primary)",
+              backgroundColor: "var(--on-primary)",
+              color: "var(--primary)",
             }}
             onClick={handleSaveTransaction}
           >

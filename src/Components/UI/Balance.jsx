@@ -31,7 +31,7 @@ const Balance = ({ balance, transactions = [] }) => {
   return (
     <div className="text-center pb-6 pt-8 px-6">
       {/* Balance Header */}
-      <div className="flex justify-center items-center gap-2 text-gray-600" onClick={() => navigate("/accounts")} style={{ color: "var(--on-background)" }}>
+      <div className="flex justify-center items-center gap-2 text-gray-600 mb-3" onClick={() => navigate("/accounts")} style={{ color: "var(--on-background)" }}>
         <p className="text-lg font-medium">Total Balance</p>
         <FaEye />
       </div>
