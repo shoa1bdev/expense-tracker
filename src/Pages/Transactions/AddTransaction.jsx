@@ -160,7 +160,7 @@ const AddTransaction = ({
         animate={{ y: "0%" }}
         exit={{ y: "100%" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="fixed inset-0 text-white shadow-lg flex flex-col items-center p-5 rounded-t-3xl overflow-hidden"
+        className="h-[95vh] fixed bottom-0 left-0 right-0 text-white shadow-lg flex flex-col items-center p-5 rounded-t-3xl overflow-hidden"
       >
         <header className="w-full flex justify-center items-center relative py-3 text-lg font-semibold">
           <button
@@ -214,6 +214,8 @@ const AddTransaction = ({
                 width: `${Math.max(80, amount.length * 35)}px`,
                 minWidth: "80px",
                 maxWidth: "280px",
+                boxShadow: "none",
+                border: "none",
               }}
               required
             />

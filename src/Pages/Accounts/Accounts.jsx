@@ -12,7 +12,7 @@ const Accounts = ({ accounts, setAccounts }) => {
   return (
     <div className="min-h-screen flex flex-col items-center p-5 relative">
       {/* Header */}
-      <header className="w-full flex justify-between items-center py-3 text-lg font-semibold">
+      <header className="w-full flex justify-between items-center py-3 text-lg font-semibold text-white">
         <h2>Your Accounts</h2>
       </header>
 
