@@ -3,6 +3,7 @@
     "short_name": "Tracker",
     "start_url": "/expense-tracker/",
     "display": "standalone",
+    "orientation": "portrait",
     "background_color": "#ffffff",
     "theme_color": "#000000",
     "icons": [
