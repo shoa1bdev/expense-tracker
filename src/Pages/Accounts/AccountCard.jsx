@@ -51,7 +51,7 @@ const AccountCard = ({ index, account, accounts, setAccounts, pastelColors }) =>
                 <FaEllipsisV />
               </button>
               {menuOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md py-1 text-sm border border-gray-100 z-10">
+                <div className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-md py-1 text-sm border border-gray-100 z-10">
                   <button
                     onClick={() => {
                       setEditing(true);

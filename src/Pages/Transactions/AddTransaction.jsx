@@ -209,6 +209,7 @@ const AddTransaction = ({
               value={new Intl.NumberFormat("en-IN").format(amount)}
               onChange={handleAmountChange}
               placeholder="0"
+              id="skip"
               className="text-center bg-transparent border-none focus:outline-none"
               style={{
                 width: `${Math.max(80, amount.length * 35)}px`,
@@ -221,15 +222,15 @@ const AddTransaction = ({
             />
           </div>
           {showError && (
-            <p style={{ color: "var(--error)" }}>
+            <p style={{ color: "var(--on-background)" }}>
               Maximum transaction amount is ₹1,00,000
             </p>
           )}
           {showErrorTwo && (
-            <p style={{ color: "var(--error)" }}>Both account can't be same!</p>
+            <p style={{ color: "var(--on-background)" }}>Both account can't be same!</p>
           )}
           {showErrorThree && (
-            <p style={{ color: "var(--error)" }}>
+            <p style={{ color: "var(--on-background)" }}>
               Insufficient balance in the selected account!
             </p>
           )}

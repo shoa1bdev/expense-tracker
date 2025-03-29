@@ -52,7 +52,7 @@ const Analysis = () => {
   const totalAmount = displayedData.reduce((sum, item) => sum + item.amount, 0);
 
   return (
-    <div className="p-4 bg-gray-100 min-h-screen dark">
+    <div className="p-4 min-h-screen dark">
       {/* Header */}
       <div className="flex justify-between items-center">
         <button onClick={() => setMonth((prev) => (prev === 0 ? 11 : prev - 1))}>

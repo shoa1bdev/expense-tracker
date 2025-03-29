@@ -40,14 +40,14 @@ const TransactionPopup = ({
   const isTransfer = editedTransaction.category === "Transfer";
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg shadow-xl w-4/5 max-w-md relative">
+    <div className="fixed inset-0 flex items-center justify-center bg-opacity-60 backdrop-blur-sm z-100"  style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
+      <div className=" p-6 rounded-lg shadow-xl w-[90vw] max-w-md relative" style={{ backgroundColor: "var(--primary)"}}>
         {/* Close Button */}
         <button onClick={handleClosePopup} className="absolute top-3 right-3 text-gray-600">
           <FaTimes size={18} />
         </button>
 
-        <h2 className="text-lg font-bold mb-4 text-center">Edit Transaction</h2>
+        <h2 className="text-lg font-bold mb-4 text-center text-black">Edit Transaction</h2>
 
         {/* If it's a transfer, only show From Account, To Account, and Date */}
         {isTransfer ? (
@@ -88,6 +88,7 @@ const TransactionPopup = ({
         ) : (
           <>
             {/* Transaction Name */}
+            <span className="span">Transaction Name:</span>
             <input
               type="text"
               name="name"
@@ -98,6 +99,7 @@ const TransactionPopup = ({
             />
 
             {/* Amount */}
+            <span className="span">Amount:</span>
             <input
               type="number"
               name="amount"
@@ -108,6 +110,7 @@ const TransactionPopup = ({
             />
 
             {/* Date Picker */}
+            <span className="span">Date & Time:</span>
             <input
               type="datetime-local"
               name="date"
@@ -117,6 +120,7 @@ const TransactionPopup = ({
             />
 
             {/* Category Dropdown */}
+            <span className="span">Category:</span>
             <select
               name="category"
               value={editedTransaction.category || categories[0]} 
@@ -129,6 +133,7 @@ const TransactionPopup = ({
             </select>
 
             {/* Account Dropdown */}
+            <span className="span">Account:</span>
             <select
               name="account"
               value={editedTransaction.account || accounts[0]?.name} 
@@ -143,16 +148,16 @@ const TransactionPopup = ({
         )}
 
         {/* Action Buttons */}
-        <div className="flex justify-between gap-3">
+        <div className="flex justify-between gap-3 mt-3">
           <button 
             onClick={deleteTransaction} 
-            className="w-1/2 bg-red-500 text-white py-2 rounded flex items-center justify-center gap-2"
+            className="w-1/2 bg-red-500 text-white py-2 rounded-lg flex items-center justify-center gap-2"
           >
             <FaTrash /> Delete
           </button>
           <button 
             onClick={saveTransactionChanges} 
-            className="w-1/2 bg-black text-white py-2 rounded"
+            className="w-1/2 bg-black text-white py-2 rounded-lg"
           >
             Save Changes
           </button>

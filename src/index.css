@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 html, body {
   height: 100%;
   margin: 0;
@@ -32,9 +31,6 @@ html, body {
   -ms-overflow-style: none; /* IE and Edge */
 }
 
-body {
-  background-color: #2e2e2e;
-}
 :root {
   --primary: #bb86fc;
   --primary-variant: #3700b3;
@@ -48,13 +44,15 @@ body {
   --on-error: #b4b4b4;
 }
 
+
 /* Apply dark mode styles */
-.dark {
+body {
   background-color: var(--background);
   color: var(--on-background);
 }
 select, 
-input[type="datetime-local"] {
+input[type="datetime-local"],
+input:not(#skip) {
   appearance: none; /* Removes default styles */
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -87,4 +85,8 @@ input[type="datetime-local"] {
 
 .date::-webkit-calendar-picker-indicator {
   filter: invert(1); /* Makes date picker icon match dark theme */
+}
+.span {
+  margin-left: 5px;
+  color: var(--on-primary);
 }

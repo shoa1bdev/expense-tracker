@@ -24,7 +24,7 @@ const Transactions = ({ transactions = [], openEditPopup }) => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <h3 className="text-lg font-semibold">Recent Transactions</h3>
-        <Link to="/transactions" className="text-sm text-gray-600 hover:underline">
+        <Link to="/transactions" className="text-sm hover:underline" style={{color: "var(--secondary)"}}>
           See all
         </Link>
       </div>
